@@ -4,8 +4,6 @@
 
 // The purpose of this file is to allow custom functions to be added to Merger, by anyone using Merger
 //
-import {xDbgConsole} from "merger"
-import {xExtFunctions} from "../../merger/built/esm/src/merger-extensions.js"
 
 export const customFunctions = {
 
