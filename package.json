@@ -1,15 +1,26 @@
 {
-   "name": "merger",
+   "name": "merger-ext-functions",
    "version": "0.0.1",
    "description": "skeleton for your custom extension functions to be added to https://github.com/JeffCoster/merger",
-   "main": "custom-functions.mjs",
+   "main": "built/cjs/src/custom-functions.mjs",
    "type": "module",
    "directories": {
    },
    "dependencies": {
    },
+   "exports": {
+      ".": {
+        "types": "./built/types/src/custom-functions.d.ts",
+        "require": "./built/cjs/src/custom-functions.js",
+        "import": "./built/esm/src/custom-functions.js",
+        "default": "./built/esm/src/custom-functions.js"
+      }
+    },
    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "compile": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json",
+      "build:clean": "rm -rf ./built",
+      "build": "npm-run-all build:clean compile && node ./scripts/prepare-package-json"
    },
    "repository": {
       "type": "git",
